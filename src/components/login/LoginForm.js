@@ -33,7 +33,7 @@ export default function LoginForm({ setVisible }) {
   const loginSubmit = async () => {
     try {
       setLoading(true);
-      const { data } = await axios.post(`localhost:8001/api/login`, {
+      const { data } = await axios.post(`http://ptit-be-env-1.eba-mc9righp.us-east-1.elasticbeanstalk.com/api/login`, {
         email,
         password,
       });

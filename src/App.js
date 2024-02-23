@@ -12,7 +12,7 @@ import { useEffect, useReducer, useState } from "react";
 import axios from "axios";
 import { postsReducer } from "./functions/reducers";
 import Friends from "./pages/friends";
-export const API = "localhost:8001"
+export const API = "http://ptit-be-env-1.eba-mc9righp.us-east-1.elasticbeanstalk.com"
 
 function App() {
   const [visible, setVisible] = useState(false);
