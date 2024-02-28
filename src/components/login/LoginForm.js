@@ -37,19 +37,28 @@ export default function LoginForm({ setVisible }) {
   const loginSubmit = async () => {
     try {
       setLoading(true);
-      await csrfMiddleware({}, {}, async () => {
 
-        const { data } = await axios.post(
-          `http://awseb--AWSEB-1sIj49oClAGQ-188508438.us-east-1.elb.amazonaws.com/api/login`,
-          {
-          email,
-          password,
-        });
+      const {data: csrfResponse} = await axios.get(
+        // `https://api.phimmois.com/api/csrf-token`, 
+        `http://localhost:8000/api/csrf-token`,
+      );
+      const csrfToken = csrfResponse.csrfToken;
 
-        dispatch({ type: "LOGIN", payload: data });
-        Cookies.set("user", JSON.stringify(data));
-        navigate("/");
+      const { data } = await axios.post(
+        // `https://api.phimmois.com/api/login`,
+        `http://localhost:8000/api/login`,
+        {
+        email,
+        password,
+      },{
+        headers: {
+          'X-CSRF-Token': csrfToken,
+        },
       });
+
+      dispatch({ type: "LOGIN", payload: data });
+      Cookies.set("user", JSON.stringify(data));
+      navigate("/");
     } catch (error) {
       setLoading(false);
       setError(error?.response?.data.message);
@@ -59,18 +68,26 @@ export default function LoginForm({ setVisible }) {
     try {
       setLoading(true);
 
-      await csrfMiddleware({}, {}, async () => {
+      const {data: csrfResponse} = await axios.get(
+      `http://localhost:8000/api/csrf-token`,
+      )
+      const csrfToken = csrfResponse.csrfToken;
 
-        const { data } = await axios.post(
-          `http://awseb--AWSEB-1sIj49oClAGQ-188508438.us-east-1.elb.amazonaws.com/api/login`, 
-          {
-          email: "quangnv.0212@gmail.com",
-          password: "ngulol69",
-        },);
-        dispatch({ type: "LOGIN", payload: data });
-        Cookies.set("user", JSON.stringify(data));
-        navigate("/");
-      });
+      const { data } = await axios.post(
+        `http://localhost:8000/api/login`, 
+        {
+        email: "quangnv.0212@gmail.com",
+        password: "ngulol69",
+      },
+      {
+        headers: {
+          'X-CSRF-Token': csrfToken,
+        },
+      },
+      );
+      dispatch({ type: "LOGIN", payload: data });
+      Cookies.set("user", JSON.stringify(data));
+      navigate("/");
     } catch (error) {
       setLoading(false);
       setError(error?.response?.data.message);
