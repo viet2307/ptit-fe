@@ -25,7 +25,7 @@ export default function Activate() {
     try {
       setLoading(true);
       const { data } = await axios.post(
-        `http://ptit-be-env-1.eba-mc9righp.us-east-1.elasticbeanstalk.com/api/activate`,
+        `http://awseb--AWSEB-1sIj49oClAGQ-188508438.us-east-1.elb.amazonaws.com/api/activate`,
         { token },
         {
           headers: {

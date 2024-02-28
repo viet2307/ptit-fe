@@ -2,7 +2,7 @@ import axios from "axios";
 export const updateprofilePicture = async (url, token) => {
   try {
     const { data } = await axios.put(
-      `http://ptit-be-env-1.eba-mc9righp.us-east-1.elasticbeanstalk.com/api/updateProfilePicture`,
+      `http://awseb--AWSEB-1sIj49oClAGQ-188508438.us-east-1.elb.amazonaws.com/api/updateProfilePicture`,
       {
         url,
       },
@@ -20,7 +20,7 @@ export const updateprofilePicture = async (url, token) => {
 export const updateCover = async (url, token) => {
   try {
     const { data } = await axios.put(
-      `http://ptit-be-env-1.eba-mc9righp.us-east-1.elasticbeanstalk.com/api/updateCover`,
+      `http://awseb--AWSEB-1sIj49oClAGQ-188508438.us-east-1.elb.amazonaws.com/api/updateCover`,
       {
         url,
       },
@@ -38,7 +38,7 @@ export const updateCover = async (url, token) => {
 export const addFriend = async (id, token) => {
   try {
     const { data } = await axios.put(
-      `http://ptit-be-env-1.eba-mc9righp.us-east-1.elasticbeanstalk.com/api/addFriend/${id}`,
+      `http://awseb--AWSEB-1sIj49oClAGQ-188508438.us-east-1.elb.amazonaws.com/api/addFriend/${id}`,
       {},
 
       {
@@ -55,7 +55,7 @@ export const addFriend = async (id, token) => {
 export const cancelRequest = async (id, token) => {
   try {
     const { data } = await axios.put(
-      `http://ptit-be-env-1.eba-mc9righp.us-east-1.elasticbeanstalk.com/api/cancelRequest/${id}`,
+      `http://awseb--AWSEB-1sIj49oClAGQ-188508438.us-east-1.elb.amazonaws.com/api/cancelRequest/${id}`,
       {},
 
       {
@@ -72,7 +72,7 @@ export const cancelRequest = async (id, token) => {
 export const follow = async (id, token) => {
   try {
     const { data } = await axios.put(
-      `http://ptit-be-env-1.eba-mc9righp.us-east-1.elasticbeanstalk.com/api/follow/${id}`,
+      `http://awseb--AWSEB-1sIj49oClAGQ-188508438.us-east-1.elb.amazonaws.com/api/follow/${id}`,
       {},
 
       {
@@ -90,7 +90,7 @@ export const follow = async (id, token) => {
 export const unfollow = async (id, token) => {
   try {
     const { data } = await axios.put(
-      `http://ptit-be-env-1.eba-mc9righp.us-east-1.elasticbeanstalk.com/api/unfollow/${id}`,
+      `http://awseb--AWSEB-1sIj49oClAGQ-188508438.us-east-1.elb.amazonaws.com/api/unfollow/${id}`,
       {},
 
       {
@@ -107,7 +107,7 @@ export const unfollow = async (id, token) => {
 export const acceptRequest = async (id, token) => {
   try {
     const { data } = await axios.put(
-      `http://ptit-be-env-1.eba-mc9righp.us-east-1.elasticbeanstalk.com/api/acceptRequest/${id}`,
+      `http://awseb--AWSEB-1sIj49oClAGQ-188508438.us-east-1.elb.amazonaws.com/api/acceptRequest/${id}`,
       {},
 
       {
@@ -124,7 +124,7 @@ export const acceptRequest = async (id, token) => {
 export const unfriend = async (id, token) => {
   try {
     const { data } = await axios.put(
-      `http://ptit-be-env-1.eba-mc9righp.us-east-1.elasticbeanstalk.com/api/unfriend/${id}`,
+      `http://awseb--AWSEB-1sIj49oClAGQ-188508438.us-east-1.elb.amazonaws.com/api/unfriend/${id}`,
       {},
 
       {
@@ -141,7 +141,7 @@ export const unfriend = async (id, token) => {
 export const deleteRequest = async (id, token) => {
   try {
     const { data } = await axios.put(
-      `http://ptit-be-env-1.eba-mc9righp.us-east-1.elasticbeanstalk.com/api/deleteRequest/${id}`,
+      `http://awseb--AWSEB-1sIj49oClAGQ-188508438.us-east-1.elb.amazonaws.com/api/deleteRequest/${id}`,
       {},
 
       {
@@ -158,7 +158,7 @@ export const deleteRequest = async (id, token) => {
 export const search = async (searchTerm, token) => {
   try {
     const { data } = await axios.post(
-      `http://ptit-be-env-1.eba-mc9righp.us-east-1.elasticbeanstalk.com/api/search/${searchTerm}`,
+      `http://awseb--AWSEB-1sIj49oClAGQ-188508438.us-east-1.elb.amazonaws.com/api/search/${searchTerm}`,
       {},
 
       {
@@ -175,7 +175,7 @@ export const search = async (searchTerm, token) => {
 export const addToSearchHistory = async (searchUser, token) => {
   try {
     const { data } = await axios.put(
-      `http://ptit-be-env-1.eba-mc9righp.us-east-1.elasticbeanstalk.com/api/addToSearchHistory`,
+      `http://awseb--AWSEB-1sIj49oClAGQ-188508438.us-east-1.elb.amazonaws.com/api/addToSearchHistory`,
       { searchUser },
 
       {
@@ -192,7 +192,7 @@ export const addToSearchHistory = async (searchUser, token) => {
 export const getSearchHistory = async (token) => {
   try {
     const { data } = await axios.get(
-      `http://ptit-be-env-1.eba-mc9righp.us-east-1.elasticbeanstalk.com/api/getSearchHistory`,
+      `http://awseb--AWSEB-1sIj49oClAGQ-188508438.us-east-1.elb.amazonaws.com/api/getSearchHistory`,
 
       {
         headers: {
@@ -208,7 +208,7 @@ export const getSearchHistory = async (token) => {
 export const removeFromSearch = async (searchUser, token) => {
   try {
     const { data } = await axios.put(
-      `http://ptit-be-env-1.eba-mc9righp.us-east-1.elasticbeanstalk.com/api/removeFromSearch`,
+      `http://awseb--AWSEB-1sIj49oClAGQ-188508438.us-east-1.elb.amazonaws.com/api/removeFromSearch`,
       { searchUser },
 
       {
@@ -225,7 +225,7 @@ export const removeFromSearch = async (searchUser, token) => {
 export const getFriendsPageInfos = async (token) => {
   try {
     const { data } = await axios.get(
-      `http://ptit-be-env-1.eba-mc9righp.us-east-1.elasticbeanstalk.com/api/getFriendsPageInfos`,
+      `http://awseb--AWSEB-1sIj49oClAGQ-188508438.us-east-1.elb.amazonaws.com/api/getFriendsPageInfos`,
 
       {
         headers: {

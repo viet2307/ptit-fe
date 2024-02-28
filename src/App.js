@@ -12,7 +12,7 @@ import { useEffect, useReducer, useState } from "react";
 import axios from "axios";
 import { postsReducer } from "./functions/reducers";
 import Friends from "./pages/friends";
-export const API = "http://ptit-be-env-1.eba-mc9righp.us-east-1.elasticbeanstalk.com"
+export const API = "http://awseb--AWSEB-1sIj49oClAGQ-188508438.us-east-1.elb.amazonaws.com"
 
 function App() {
   const [visible, setVisible] = useState(false);
@@ -30,7 +30,9 @@ function App() {
       dispatch({
         type: "POSTS_REQUEST",
       });
-      const { data } = await axios.get(`http://ptit-be-env-1.eba-mc9righp.us-east-1.elasticbeanstalk.com/api/getAllposts`, {
+      const { data } = await axios.get(
+        `http://awseb--AWSEB-1sIj49oClAGQ-188508438.us-east-1.elb.amazonaws.com/api/getAllposts`, 
+        {
         headers: {
           Authorization: `Bearer ${user.token}`,
         },

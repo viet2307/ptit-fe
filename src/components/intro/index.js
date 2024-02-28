@@ -32,7 +32,7 @@ export default function Intro({ detailss, visitor, setOthername }) {
     try {
       console.log("sent");
       const { data } = await axios.put(
-        `http://ptit-be-env-1.eba-mc9righp.us-east-1.elasticbeanstalk.com/api/updateDetails`,
+        `http://awseb--AWSEB-1sIj49oClAGQ-188508438.us-east-1.elb.amazonaws.com/api/updateDetails`,
         {
           infos,
         },

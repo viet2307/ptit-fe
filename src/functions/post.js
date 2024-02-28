@@ -9,7 +9,7 @@ export const createPost = async (
 ) => {
   try {
     const { data } = await axios.post(
-      `http://ptit-be-env-1.eba-mc9righp.us-east-1.elasticbeanstalk.com/api/createPost`,
+      `http://awseb--AWSEB-1sIj49oClAGQ-188508438.us-east-1.elb.amazonaws.com/api/createPost`,
       {
         type,
         background,
@@ -31,7 +31,7 @@ export const createPost = async (
 export const reactPost = async (postId, react, token) => {
   try {
     const { data } = await axios.put(
-      `http://ptit-be-env-1.eba-mc9righp.us-east-1.elasticbeanstalk.com/api/reactPost`,
+      `http://awseb--AWSEB-1sIj49oClAGQ-188508438.us-east-1.elb.amazonaws.com/api/reactPost`,
       {
         postId,
         react,
@@ -50,7 +50,7 @@ export const reactPost = async (postId, react, token) => {
 export const getReacts = async (postId, token) => {
   try {
     const { data } = await axios.get(
-      `http://ptit-be-env-1.eba-mc9righp.us-east-1.elasticbeanstalk.com/api/getReacts/${postId}`,
+      `http://awseb--AWSEB-1sIj49oClAGQ-188508438.us-east-1.elb.amazonaws.com/api/getReacts/${postId}`,
 
       {
         headers: {
@@ -66,7 +66,7 @@ export const getReacts = async (postId, token) => {
 export const comment = async (postId, comment, image, token) => {
   try {
     const { data } = await axios.put(
-      `http://ptit-be-env-1.eba-mc9righp.us-east-1.elasticbeanstalk.com/api/comment`,
+      `http://awseb--AWSEB-1sIj49oClAGQ-188508438.us-east-1.elb.amazonaws.com/api/comment`,
       {
         postId,
         comment,
@@ -87,7 +87,7 @@ export const comment = async (postId, comment, image, token) => {
 export const savePost = async (postId, token) => {
   try {
     const { data } = await axios.put(
-      `http://ptit-be-env-1.eba-mc9righp.us-east-1.elasticbeanstalk.com/api/savePost/${postId}`,
+      `http://awseb--AWSEB-1sIj49oClAGQ-188508438.us-east-1.elb.amazonaws.com/api/savePost/${postId}`,
       {},
 
       {
@@ -104,7 +104,7 @@ export const savePost = async (postId, token) => {
 export const deletePost = async (postId, token) => {
   try {
     const { data } = await axios.delete(
-      `http://ptit-be-env-1.eba-mc9righp.us-east-1.elasticbeanstalk.com/api/deletePost/${postId}`,
+      `http://awseb--AWSEB-1sIj49oClAGQ-188508438.us-east-1.elb.amazonaws.com/api/deletePost/${postId}`,
 
       {
         headers: {

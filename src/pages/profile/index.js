@@ -52,7 +52,7 @@ export default function Profile({ getAllPosts }) {
         type: "PROFILE_REQUEST",
       });
       const { data } = await axios.get(
-        `http://ptit-be-env-1.eba-mc9righp.us-east-1.elasticbeanstalk.com/api/getProfile/${userName}`,
+        `http://awseb--AWSEB-1sIj49oClAGQ-188508438.us-east-1.elb.amazonaws.com/api/getProfile/${userName}`,
         {
           headers: {
             Authorization: `Bearer ${user.token}`,
@@ -64,7 +64,7 @@ export default function Profile({ getAllPosts }) {
       } else {
         try {
           const images = await axios.post(
-            `http://ptit-be-env-1.eba-mc9righp.us-east-1.elasticbeanstalk.com/api/listImages`,
+            `http://awseb--AWSEB-1sIj49oClAGQ-188508438.us-east-1.elb.amazonaws.com/api/listImages`,
             { path, sort, max },
             {
               headers: {

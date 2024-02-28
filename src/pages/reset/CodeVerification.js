@@ -24,7 +24,7 @@ export default function CodeVerification({
   const verifyCode = async () => {
     try {
       setLoading(true);
-      await axios.post(`http://ptit-be-env-1.eba-mc9righp.us-east-1.elasticbeanstalk.com/api/validateResetCode`, {
+      await axios.post(`http://awseb--AWSEB-1sIj49oClAGQ-188508438.us-east-1.elb.amazonaws.com/api/validateResetCode`, {
         email,
         code,
       });

@@ -7,7 +7,7 @@ export default function SendVerification({ user }) {
   const sendVerificationLink = async () => {
     try {
       const { data } = await axios.post(
-        `http://ptit-be-env-1.eba-mc9righp.us-east-1.elasticbeanstalk.com/api/sendVerification`,
+        `http://awseb--AWSEB-1sIj49oClAGQ-188508438.us-east-1.elb.amazonaws.com/api/sendVerification`,
         {},
         {
           headers: {

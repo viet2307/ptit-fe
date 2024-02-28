@@ -8,6 +8,9 @@ import axios from "axios";
 import { useDispatch } from "react-redux";
 import Cookies from "js-cookie";
 import { useNavigate } from "react-router-dom";
+import csrfMiddleware from "../../helpers/csrfProtection"; // Import CSRF middleware
+
+
 const loginInfos = {
   email: "",
   password: "",
@@ -30,16 +33,23 @@ export default function LoginForm({ setVisible }) {
   });
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
+
   const loginSubmit = async () => {
     try {
       setLoading(true);
-      const { data } = await axios.post(`http://ptit-be-env-1.eba-mc9righp.us-east-1.elasticbeanstalk.com/api/login`, {
-        email,
-        password,
+      await csrfMiddleware({}, {}, async () => {
+
+        const { data } = await axios.post(
+          `http://awseb--AWSEB-1sIj49oClAGQ-188508438.us-east-1.elb.amazonaws.com/api/login`,
+          {
+          email,
+          password,
+        });
+
+        dispatch({ type: "LOGIN", payload: data });
+        Cookies.set("user", JSON.stringify(data));
+        navigate("/");
       });
-      dispatch({ type: "LOGIN", payload: data });
-      Cookies.set("user", JSON.stringify(data));
-      navigate("/");
     } catch (error) {
       setLoading(false);
       setError(error?.response?.data.message);
@@ -48,13 +58,19 @@ export default function LoginForm({ setVisible }) {
   const loginMyAccount = async () => {
     try {
       setLoading(true);
-      const { data } = await axios.post(`http://ptit-be-env-1.eba-mc9righp.us-east-1.elasticbeanstalk.com/api/login`, {
-        email: "quangnv.0212@gmail.com",
-        password: "ngulol69",
+
+      await csrfMiddleware({}, {}, async () => {
+
+        const { data } = await axios.post(
+          `http://awseb--AWSEB-1sIj49oClAGQ-188508438.us-east-1.elb.amazonaws.com/api/login`, 
+          {
+          email: "quangnv.0212@gmail.com",
+          password: "ngulol69",
+        },);
+        dispatch({ type: "LOGIN", payload: data });
+        Cookies.set("user", JSON.stringify(data));
+        navigate("/");
       });
-      dispatch({ type: "LOGIN", payload: data });
-      Cookies.set("user", JSON.stringify(data));
-      navigate("/");
     } catch (error) {
       setLoading(false);
       setError(error?.response?.data.message);
